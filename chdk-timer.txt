@@ -1,0 +1,31 @@
+rem Author - Keoeeit
+rem USE WITH CAUTION
+rem do not run for many hours or days
+@title Interval Shooting Non-stop 
+@param a Interval (Minutes) 
+@default a 0 
+@param b Interval (Seconds) 
+@default b 10 
+@param c Interval (10th Seconds) 
+@default c 0 
+ 
+t=a*60000+b*1000+c*100 
+ 
+if t<100 then let t=5000 
+ 
+n=1 
+ 
+print "Interval shooting."
+print "Until you interrupt it."
+print "Use with caution."
+ 
+sleep 1000 
+ 
+goto "shot" 
+ 
+:shot
+  print "Shot number", n 
+  shoot 
+  n=n+1 
+  sleep t 
+  goto "shot"
